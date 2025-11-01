@@ -1,0 +1,65 @@
+.product-card {
+  width: 240px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.product-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  height: 36px;
+  overflow: hidden;
+}
+
+.product-category {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.like-button,
+.delete-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.1s ease;
+}
+
+.like-button:hover,
+.delete-button:hover {
+  transform: scale(1.2);
+}
+
+.like-button.liked {
+  color: crimson;
+}
