@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "./store/store";
 import { fetchProducts } from "./api/fetchProducts";
 import ProductsPage from "./ui/pages/ProductsPage/ProductsPage";
