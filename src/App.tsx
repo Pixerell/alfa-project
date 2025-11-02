@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "./store/store";
-import { ProductList } from "./ui/components/ProductList/productList";
 import { fetchProducts } from "./api/fetchProducts";
+import ProductsPage from "./ui/pages/ProductPage";
 
 //        <Route path='/products/:id' element={<ProductPage />} />
 
@@ -16,7 +16,7 @@ export const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<ProductList />} />
+        <Route path='/' element={<ProductsPage />} />
       </Routes>
     </Router>
   );

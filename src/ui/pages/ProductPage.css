@@ -1,0 +1,40 @@
+.products-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  width: 80%;
+}
+
+h2 {
+  text-align: center;
+  margin: 1em;
+}
+
+.products-active-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.products-active-row-left {
+  width: 50%;
+}
+
+.products-active-row-right {
+  display: flex;
+  justify-content: end;
+  width: 50%;
+}
+
+.products-label {
+  margin-right: 2.5%;
+  font-weight: 600;
+}
+
+.products-search {
+  padding: 4px;
+  width: 60%;
+}

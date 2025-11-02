@@ -1,0 +1,18 @@
+.products-filter-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 14px;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.products-filter-btn:hover {
+  transform: scale(1.024);
+}
+
+.products-filter-btn.active {
+  background: #f8f0f2;
+  color: black;
+}

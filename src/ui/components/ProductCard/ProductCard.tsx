@@ -15,22 +15,21 @@ export const ProductCard: React.FC<Props> = React.memo(
 
     return (
       <div className='product-card' onClick={onClick}>
-        <img
-          src={product.image}
-          alt={product.title}
-          className='product-image'
-        />
-        <h3 className='product-title'>{product.title}</h3>
-        <p className='product-category'>{product.category}</p>
-        <p className='product-price'>${product.price}</p>
+        <div className='image-wrapper'>
+          <img
+            src={product.image}
+            alt={product.title}
+            className='product-image'
+          />
 
-        <div className='product-actions'>
           <button
             onClick={(e) => {
               e.stopPropagation();
               dispatch(toggleLike(product.id));
             }}
-            className={`like-button ${product.liked ? "liked" : ""}`}
+            className={`icon-button like-button ${
+              product.liked ? "liked" : ""
+            }`}
           >
             ♥
           </button>
@@ -40,10 +39,16 @@ export const ProductCard: React.FC<Props> = React.memo(
               e.stopPropagation();
               dispatch(deleteProduct(product.id));
             }}
-            className='delete-button'
+            className='icon-button delete-button'
           >
             🗑️
           </button>
+        </div>
+
+        <div className='product-body'>
+          <p className='product-price'>${product.price}</p>
+          <h3 className='product-title'>{product.title}</h3>
+          <p className='product-category'>{product.category}</p>
         </div>
       </div>
     );
