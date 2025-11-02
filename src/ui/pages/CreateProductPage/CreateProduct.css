@@ -1,0 +1,20 @@
+.create-product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: 16px;
+  width: 70%;
+}
+
+.create-product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.create-preview-title {
+  text-align: center;
+  opacity: 0.5;
+}

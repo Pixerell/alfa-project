@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../../store/store";
 import "./ProductPage.css";
-import BackButton from "../../components/BackButton/BackButton";
+import { ButtonBack } from "../../components/Buttons/ButtonBack";
 
 export const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +14,7 @@ export const ProductPage: React.FC = () => {
 
   return (
     <div className='product-page'>
-      <BackButton />
+      <ButtonBack />
       <h2>{product.title}</h2>
       <img src={product.image} alt={product.title} />
       <div className='product-page-description'>

@@ -7,14 +7,26 @@ import "./ProductCard.css";
 type Props = {
   product: Product;
   onClick?: () => void;
+  clickable?: boolean;
 };
 
 export const ProductCard: React.FC<Props> = React.memo(
-  ({ product, onClick }) => {
+  ({ product, onClick, clickable = true }) => {
     const dispatch = useAppDispatch();
+    const handleLike = (e: React.MouseEvent) => {
+      e.stopPropagation();
+      dispatch(toggleLike(product.id));
+    };
+    const handleDelete = (e: React.MouseEvent) => {
+      e.stopPropagation();
+      dispatch(deleteProduct(product.id));
+    };
 
     return (
-      <div className='product-card' onClick={onClick}>
+      <div
+        className={`product-card ${clickable ? "clickable" : ""}`}
+        onClick={clickable && onClick ? onClick : undefined}
+      >
         <div className='image-wrapper'>
           <img
             src={product.image}
@@ -22,27 +34,25 @@ export const ProductCard: React.FC<Props> = React.memo(
             className='product-image'
           />
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(toggleLike(product.id));
-            }}
-            className={`icon-button like-button ${
-              product.liked ? "liked" : ""
-            }`}
-          >
-            ♥
-          </button>
+          {clickable && (
+            <>
+              <button
+                onClick={handleLike}
+                className={`icon-button like-button ${
+                  product.liked ? "liked" : ""
+                }`}
+              >
+                ♥
+              </button>
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(deleteProduct(product.id));
-            }}
-            className='icon-button delete-button'
-          >
-            🗑️
-          </button>
+              <button
+                onClick={handleDelete}
+                className='icon-button delete-button'
+              >
+                🗑️
+              </button>
+            </>
+          )}
         </div>
 
         <div className='product-body'>

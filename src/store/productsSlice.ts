@@ -14,18 +14,16 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setProduct(state, action: PayloadAction<Product[]>) {
-      state.items = action.payload;
+    addProduct: (state, action: PayloadAction<Product>) => {
+      state.items.push(action.payload);
     },
     deleteProduct(state, action: PayloadAction<number>) {
-      state.items = state.items.filter(
-        (product) => product.id !== action.payload
-      );
+      const index = state.items.findIndex((p) => p.id === action.payload);
+      if (index !== -1) state.items.splice(index, 1);
     },
     toggleLike(state, action: PayloadAction<number>) {
-      state.items = state.items.map((p) =>
-        p.id === action.payload ? { ...p, liked: !p.liked } : p
-      );
+      const product = state.items.find((p) => p.id === action.payload);
+      if (product) product.liked = !product.liked;
     },
   },
   extraReducers: (builder) => {
@@ -48,5 +46,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { toggleLike, deleteProduct } = productsSlice.actions;
+export const { toggleLike, deleteProduct, addProduct } = productsSlice.actions;
 export default productsSlice.reducer;

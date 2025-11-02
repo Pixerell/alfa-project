@@ -10,7 +10,7 @@ type Props = {
 
 export const ProductList: React.FC<Props> = React.memo(({ products }) => {
   const navigate = useNavigate();
-
+  const navigateToProduct = (id: number) => () => navigate(`/products/${id}`);
   if (!products.length) return <p className='status-text'>No products found</p>;
 
   return (
@@ -19,7 +19,7 @@ export const ProductList: React.FC<Props> = React.memo(({ products }) => {
         <ProductCard
           key={product.id}
           product={product}
-          onClick={() => navigate(`/products/${product.id}`)}
+          onClick={navigateToProduct(product.id)}
         />
       ))}
     </div>

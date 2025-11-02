@@ -1,8 +1,8 @@
 import React from "react";
-import "./FilterButton.css";
+import "./basebutton.css";
 import type { SortOption } from "../../../api/types";
 
-type FilterButtonProps = {
+type ButtonFilterProps = {
   active?: boolean;
   state?: SortOption; // for tri-state buttons
   onClick: () => void;
@@ -10,20 +10,20 @@ type FilterButtonProps = {
   title?: string;
 };
 
-export const FilterButton: React.FC<FilterButtonProps> = React.memo(
+export const ButtonFilter: React.FC<ButtonFilterProps> = React.memo(
   ({ active, state, onClick, label, title }) => {
     const isActive =
       active !== undefined ? active : state !== undefined && state !== "off";
 
     return (
-      <div
-        className={`products-filter-btn ${isActive ? "active" : ""}`}
+      <button
+        className={`button ${isActive ? "active" : ""}`}
         onClick={onClick}
         aria-pressed={active}
         title={title}
       >
         {label}
-      </div>
+      </button>
     );
   }
 );
