@@ -26,6 +26,7 @@ h2 {
 .products-active-row-right {
   display: flex;
   justify-content: end;
+  gap: 16px;
   width: 50%;
 }
 
@@ -37,4 +38,12 @@ h2 {
 .products-search {
   padding: 4px;
   width: 60%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 1em;
+  gap: 16px;
 }

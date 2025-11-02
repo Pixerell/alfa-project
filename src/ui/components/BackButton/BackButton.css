@@ -1,0 +1,22 @@
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 14px;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  transform: scale(1.024);
+}
+
+.back-btn.active {
+  background: #f8f0f2;
+  color: black;
+}

@@ -17,3 +17,5 @@ export type ProductsState = {
   loading: boolean;
   error?: string | null;
 };
+
+export type SortOption = "off" | "asc" | "desc";
