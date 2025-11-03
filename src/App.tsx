@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "./store/store";
 import { fetchProducts } from "./api/fetchProducts";
 import ProductsPage from "./ui/pages/ProductsPage/ProductsPage";
@@ -14,13 +14,13 @@ export const App: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <Router>
+    <HashRouter>
       <Routes>
-        <Route path='/' element={<ProductsPage />} />
-        <Route path='/products/:id' element={<ProductPage />} />
-        <Route path='/create-product' element={<CreateProductPage />} />
+        <Route path='' element={<ProductsPage />} />
+        <Route path='products/:id' element={<ProductPage />} />
+        <Route path='create-product' element={<CreateProductPage />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 };
 
